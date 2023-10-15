@@ -15,8 +15,8 @@ RUN apt-get update -qq && apt-get install -y postgresql-client
 COPY Gemfile ./
 COPY Gemfile.lock ./
 
-RUN bundle config set --local disable_checksum_validation true \
-  bundle config set force_ruby_platform true \
+RUN bundle config set --local disable_checksum_validation true &&\
+  bundle config set force_ruby_platform true &&\
   bundle install
 
 FROM ruby:3.1.2
